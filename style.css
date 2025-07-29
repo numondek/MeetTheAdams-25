@@ -1,0 +1,708 @@
+  body {
+            margin: 0;
+            font-family: 'Montaga', serif;
+            color: #2B1105;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: auto;
+            min-height: 100vh;
+            background: #FCF9F7;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .hero-image {
+            width: 80%;
+            height: 150vh;
+            margin: 0 auto;
+            margin-top: 30vh;
+            background: url(./asset/IMG-20250723-WA0060-1.jpg) center/cover;
+        }
+
+        /* Navigation */
+        .logo-center {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 10px 15px;
+            text-align: center;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            flex: 1 0 auto;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+        }
+
+        .nav-link .text {
+            font-size: 18px;
+            color: #2B1105;
+        }
+
+        .logo {
+            order: -1;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Main Heading */
+        .frame-10 {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .celebrate {
+            font-size: 20px;
+            color: #C6754D;
+            margin-bottom: 10px;
+        }
+
+        .names {
+            font-size: 48px;
+            color: #2B1105;
+            margin: 10px 0;
+        }
+
+        .date-location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #C6754D;
+        }
+
+        .date-location .line {
+            width: 15px;
+            height: 1px;
+            background: #C6754D;
+        }
+
+        /* Our Story */
+        .our-story-section {
+            background: #C6754D;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .our-story-content {
+            background: #C6754D;
+            padding: 40px 20px;
+            color: #FCF9F7;
+        }
+
+        .our-story-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .our-story-text {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .photos-section {
+            margin: 10px;
+            height: 90vh;
+            background: #FCF9F7 url(./asset/WhatsApp\ Image\ 2025-07-20\ at\ 20.21.51_647f9a3c.jpg) center/cover;
+        }
+
+        /* Photo Album */
+        .album-section {
+            background: #C6754D;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .album-title {
+            font-size: 42px;
+            color: #FCF9F7;
+            margin-bottom: 30px;
+        }
+
+        .album-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .album-photo {
+            width: 100%;
+            padding-top: 100%;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #FCF9F7;
+        }
+
+        .album-section {
+            background: #C6754D;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .album-title {
+            font-family: 'Montaga', serif;
+            font-size: 42px;
+            color: #FCF9F7;
+            margin-bottom: 40px;
+        }
+
+        .album-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .album-photo {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 100%;
+            /* Square aspect ratio */
+            overflow: hidden;
+            border-radius: 8px;
+            border: 3px solid #FCF9F7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .album-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        /* Individual background images */
+        .album-photo:nth-child(1)::before {
+            background-image: url('./asset/IMG-20250421-WA0002.jpg');
+        }
+
+        .album-photo:nth-child(2)::before {
+            background-image: url('./asset/IMG-20250421-WA0005.jpg');
+        }
+
+        .album-photo:nth-child(3)::before {
+            background-image: url('./asset/IMG-20250421-WA0006.jpg');
+        }
+
+        .album-photo:nth-child(4)::before {
+            background-image: url('./asset/IMG-20250421-WA0007.jpg');
+        }
+
+        .album-photo:nth-child(5)::before {
+            background-image: url('./asset/IMG-20250421-WA0008.jpg');
+        }
+
+        .album-photo:nth-child(6)::before {
+            background-image: url('./asset/IMG-20250723-WA0045.jpg');
+        }
+
+        .album-photo:nth-child(7)::before {
+            background-image: url('./asset/IMG-20250723-WA0047.jpg');
+        }
+
+        .album-photo:nth-child(8)::before {
+            background-image: url('./asset/IMG-20250723-WA0050.jpg');
+        }
+
+        .album-photo:nth-child(9)::before {
+            background-image: url('./asset/IMG-20250723-WA0058.jpg');
+        }
+
+        .album-photo:nth-child(10)::before {
+            background-image: url('./asset/IMG-20250723-WA0059.jpg');
+        }
+
+        .album-photo:nth-child(11)::before {
+            background-image: url('./asset/IMG-20250723-WA0061.jpg');
+        }
+
+        .album-photo:nth-child(12)::before {
+            background-image: url('./asset/IMG-20250723-WA0062.jpg');
+        }
+
+        .album-photo:nth-child(13)::before {
+            background-image: url('./asset/IMG-20250723-WA0063.jpg');
+        }
+
+        /* Hover Effects */
+        .album-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            border-color: #2B1105;
+        }
+
+        .album-photo:hover::before {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 17, 5, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border: 5px solid #FCF9F7;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #FCF9F7;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .album-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .album-photo:hover {
+                transform: scale(1.03);
+            }
+
+            .lightbox-img {
+                max-height: 60vh;
+            }
+        }
+
+        /* Wedding Party */
+        .wedding-party {
+            padding: 40px 20px;
+            background: #FCF9F7;
+        }
+
+        .bridal-party-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .party-lists {
+            text-align: center;
+        }
+
+        .groomsmen-bridesmaids {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .groomsmen-title,
+        .bridesmaids-title {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .groomsmen-title.active,
+        .bridesmaids-title.active {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .groomsmen-title:not(.active),
+        .bridesmaids-title:not(.active) {
+            opacity: 0.6;
+        }
+
+        .party-blocks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .text-block {
+            text-align: center;
+        }
+
+        .member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #C6754D;
+            margin: 0 auto;
+        }
+
+        .member-name {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* Countdown */
+        .countdown-section {
+            background: #FCF9F7;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .countdown-box {
+            min-width: 100px;
+            padding: 15px;
+            background: #C6754D;
+            border-radius: 8px;
+            color: #FCF9F7;
+        }
+
+        .countdown-box span {
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-box p {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        /* YouTube Live */
+        .youtube-live {
+            background: #C6754D;
+            padding: 40px 20px;
+            text-align: center;
+            color: #FCF9F7;
+        }
+
+        .youtube-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .placeholder-video {
+            background: #FCF9F7;
+            padding: 20px;
+            border-radius: 8px;
+            color: #2B1105;
+            margin-top: 20px;
+        }
+
+        .youtube-button {
+            display: inline-flex;
+            align-items: center;
+            background: #FF0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .youtube-button:hover {
+            background: #CC0000;
+        }
+
+        .youtube-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        /* Registry */
+        .registry {
+            padding: 40px 20px;
+            background: #FCF9F7;
+            text-align: center;
+        }
+
+        .registry-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .registry-description {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.8;
+        }
+
+        .registry-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .registry-logo {
+            height: 50px;
+            width: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .registry-logo:hover {
+            opacity: 1;
+        }
+
+        /* Gift Section */
+        .gift-section {
+            padding: 40px 20px;
+            background: #FCF9F7;
+            text-align: center;
+        }
+
+        .gift-title {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .gift-description {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.8;
+        }
+
+        .gift-button {
+            display: inline-block;
+            background: #C6754D;
+            color: #FCF9F7;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .gift-button:hover {
+            background: #a75b3a;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+
+            /* Navigation */
+            .logo-center {
+                flex-wrap: nowrap;
+                padding: 30px 80px;
+            }
+
+            .logo {
+                order: 0;
+                width: auto;
+                flex: 0 0 auto;
+            }
+
+            .nav-link {
+                flex: 0 1 auto;
+            }
+
+            /* Hero */
+            .hero-image {
+                height: 120vh;
+                margin-top: 20vh;
+            }
+
+            .names {
+                font-size: 70px;
+            }
+
+            /* Our Story */
+            .our-story-section {
+                flex-direction: row;
+            }
+
+            .our-story-content {
+                width: 50%;
+                padding: 80px;
+            }
+
+            .photos-section {
+                width: 50%;
+                height: auto;
+            }
+
+            /* Photo Album */
+            .album-gallery {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* Wedding Party */
+            .party-blocks {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Countdown */
+            .countdown-box {
+                min-width: 150px;
+            }
+        }
+
+        /* Gift Popup Styles - Updated */
+        .gift-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 17, 5, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            /* Enable scrolling */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .gift-popup-content {
+            background: #FCF9F7;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            height: 650px;
+            margin: 20px auto;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2B1105;
+            background: none;
+            border: none;
+            z-index: 2;
+        }
+
+        .bank-details {
+            margin: 20px 0;
+            text-align: left;
+            background: #FFF;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #C6754D;
+
+        }
+
+        .bank-detail {
+            margin-bottom: 15px;
+            word-break: break-all;
+            /* Prevent long text from overflowing */
+        }
+
+        .bank-detail strong {
+            color: #C6754D;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .copy-btn {
+            background: #C6754D;
+            color: #FCF9F7;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+            font-family: 'Montaga', serif;
+        }
+
+        .copy-btn:hover {
+            background: #a75b3a;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 600px) {
+            .gift-popup-content {
+                padding: 20px 15px;
+                width: 95%;
+            }
+
+            .bank-details {
+                padding: 15px;
+                max-height: 50vh;
+            }
+
+            .bank-detail {
+                margin-bottom: 12px;
+            }
+        }

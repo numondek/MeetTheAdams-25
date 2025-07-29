@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Hero</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montaga&display=swap">
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Montaga', serif;
+            color: #2B1105;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: auto;
+            min-height: 100vh;
+            background: #FCF9F7;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .hero-image {
+            width: 80%;
+            height: 150vh;
+            margin: 0 auto;
+            margin-top: 30vh;
+            background: url(./asset/IMG-20250723-WA0060-1.jpg) center/cover;
+        }
+
+        /* Navigation */
+        .logo-center {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .nav-link {
+            padding: 10px 15px;
+            text-align: center;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            flex: 1 0 auto;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+        }
+
+        .nav-link .text {
+            font-size: 18px;
+            color: #2B1105;
+        }
+
+        .logo {
+            order: -1;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Main Heading */
+        .frame-10 {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .celebrate {
+            font-size: 20px;
+            color: #C6754D;
+            margin-bottom: 10px;
+        }
+
+        .names {
+            font-size: 48px;
+            color: #2B1105;
+            margin: 10px 0;
+        }
+
+        .date-location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #C6754D;
+        }
+
+        .date-location .line {
+            width: 15px;
+            height: 1px;
+            background: #C6754D;
+        }
+
+        /* Our Story */
+        .our-story-section {
+            background: #C6754D;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .our-story-content {
+            background: #C6754D;
+            padding: 40px 20px;
+            color: #FCF9F7;
+        }
+
+        .our-story-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .our-story-text {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .photos-section {
+            margin: 10px;
+            height: 90vh;
+            background: #FCF9F7 url(./asset/WhatsApp\ Image\ 2025-07-20\ at\ 20.21.51_647f9a3c.jpg) center/cover;
+        }
+
+        /* Photo Album */
+        .album-section {
+            background: #C6754D;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .album-title {
+            font-size: 42px;
+            color: #FCF9F7;
+            margin-bottom: 30px;
+        }
+
+        .album-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .album-photo {
+            width: 100%;
+            padding-top: 100%;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #FCF9F7;
+        }
+
+        .album-section {
+            background: #C6754D;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .album-title {
+            font-family: 'Montaga', serif;
+            font-size: 42px;
+            color: #FCF9F7;
+            margin-bottom: 40px;
+        }
+
+        .album-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .album-photo {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 100%;
+            /* Square aspect ratio */
+            overflow: hidden;
+            border-radius: 8px;
+            border: 3px solid #FCF9F7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .album-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        /* Individual background images */
+        .album-photo:nth-child(1)::before {
+            background-image: url('./asset/IMG-20250421-WA0002.jpg');
+        }
+
+        .album-photo:nth-child(2)::before {
+            background-image: url('./asset/IMG-20250421-WA0005.jpg');
+        }
+
+        .album-photo:nth-child(3)::before {
+            background-image: url('./asset/IMG-20250421-WA0006.jpg');
+        }
+
+        .album-photo:nth-child(4)::before {
+            background-image: url('./asset/IMG-20250421-WA0007.jpg');
+        }
+
+        .album-photo:nth-child(5)::before {
+            background-image: url('./asset/IMG-20250421-WA0008.jpg');
+        }
+
+        .album-photo:nth-child(6)::before {
+            background-image: url('./asset/IMG-20250723-WA0045.jpg');
+        }
+
+        .album-photo:nth-child(7)::before {
+            background-image: url('./asset/IMG-20250723-WA0047.jpg');
+        }
+
+        .album-photo:nth-child(8)::before {
+            background-image: url('./asset/IMG-20250723-WA0050.jpg');
+        }
+
+        .album-photo:nth-child(9)::before {
+            background-image: url('./asset/IMG-20250723-WA0058.jpg');
+        }
+
+        .album-photo:nth-child(10)::before {
+            background-image: url('./asset/IMG-20250723-WA0059.jpg');
+        }
+
+        .album-photo:nth-child(11)::before {
+            background-image: url('./asset/IMG-20250723-WA0061.jpg');
+        }
+
+        .album-photo:nth-child(12)::before {
+            background-image: url('./asset/IMG-20250723-WA0062.jpg');
+        }
+
+        .album-photo:nth-child(13)::before {
+            background-image: url('./asset/IMG-20250723-WA0063.jpg');
+        }
+
+        /* Hover Effects */
+        .album-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            border-color: #2B1105;
+        }
+
+        .album-photo:hover::before {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 17, 5, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border: 5px solid #FCF9F7;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #FCF9F7;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .album-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .album-photo:hover {
+                transform: scale(1.03);
+            }
+
+            .lightbox-img {
+                max-height: 60vh;
+            }
+        }
+
+        /* Wedding Party */
+        .wedding-party {
+            padding: 40px 20px;
+            background: #FCF9F7;
+        }
+
+        .bridal-party-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .party-lists {
+            text-align: center;
+        }
+
+        .groomsmen-bridesmaids {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .groomsmen-title,
+        .bridesmaids-title {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .groomsmen-title.active,
+        .bridesmaids-title.active {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .groomsmen-title:not(.active),
+        .bridesmaids-title:not(.active) {
+            opacity: 0.6;
+        }
+
+        .party-blocks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .text-block {
+            text-align: center;
+        }
+
+        .member-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #C6754D;
+            margin: 0 auto;
+        }
+
+        .member-name {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        /* Countdown */
+        .countdown-section {
+            background: #FCF9F7;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .countdown-box {
+            min-width: 100px;
+            padding: 15px;
+            background: #C6754D;
+            border-radius: 8px;
+            color: #FCF9F7;
+        }
+
+        .countdown-box span {
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-box p {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        /* YouTube Live */
+        .youtube-live {
+            background: #C6754D;
+            padding: 40px 20px;
+            text-align: center;
+            color: #FCF9F7;
+        }
+
+        .youtube-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .placeholder-video {
+            background: #FCF9F7;
+            padding: 20px;
+            border-radius: 8px;
+            color: #2B1105;
+            margin-top: 20px;
+        }
+
+        .youtube-button {
+            display: inline-flex;
+            align-items: center;
+            background: #FF0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .youtube-button:hover {
+            background: #CC0000;
+        }
+
+        .youtube-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        /* Registry */
+        .registry {
+            padding: 40px 20px;
+            background: #FCF9F7;
+            text-align: center;
+        }
+
+        .registry-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .registry-description {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.8;
+        }
+
+        .registry-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .registry-logo {
+            height: 50px;
+            width: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .registry-logo:hover {
+            opacity: 1;
+        }
+
+        /* Gift Section */
+        .gift-section {
+            padding: 40px 20px;
+            background: #FCF9F7;
+            text-align: center;
+        }
+
+        .gift-title {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .gift-description {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.8;
+        }
+
+        .gift-button {
+            display: inline-block;
+            background: #C6754D;
+            color: #FCF9F7;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .gift-button:hover {
+            background: #a75b3a;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+
+            /* Navigation */
+            .logo-center {
+                flex-wrap: nowrap;
+                padding: 30px 80px;
+            }
+
+            .logo {
+                order: 0;
+                width: auto;
+                flex: 0 0 auto;
+            }
+
+            .nav-link {
+                flex: 0 1 auto;
+            }
+
+            /* Hero */
+            .hero-image {
+                height: 120vh;
+                margin-top: 20vh;
+            }
+
+            .names {
+                font-size: 70px;
+            }
+
+            /* Our Story */
+            .our-story-section {
+                flex-direction: row;
+            }
+
+            .our-story-content {
+                width: 50%;
+                padding: 80px;
+            }
+
+            .photos-section {
+                width: 50%;
+                height: auto;
+            }
+
+            /* Photo Album */
+            .album-gallery {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            /* Wedding Party */
+            .party-blocks {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .member-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Countdown */
+            .countdown-box {
+                min-width: 150px;
+            }
+        }
+
+        /* Gift Popup Styles - Updated */
+        .gift-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 17, 5, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            /* Enable scrolling */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .gift-popup-content {
+            background: #FCF9F7;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            height: 650px;
+            margin: 20px auto;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2B1105;
+            background: none;
+            border: none;
+            z-index: 2;
+        }
+
+        .bank-details {
+            margin: 20px 0;
+            text-align: left;
+            background: #FFF;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #C6754D;
+
+        }
+
+        .bank-detail {
+            margin-bottom: 15px;
+            word-break: break-all;
+            /* Prevent long text from overflowing */
+        }
+
+        .bank-detail strong {
+            color: #C6754D;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .copy-btn {
+            background: #C6754D;
+            color: #FCF9F7;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+            font-family: 'Montaga', serif;
+        }
+
+        .copy-btn:hover {
+            background: #a75b3a;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 600px) {
+            .gift-popup-content {
+                padding: 20px 15px;
+                width: 95%;
+            }
+
+            .bank-details {
+                padding: 15px;
+                max-height: 50vh;
+            }
+
+            .bank-detail {
+                margin-bottom: 12px;
+            }
+        }
+
+        /* Script for Party Toggle */
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="logo-center">
+            <div class="nav-link">
+                <div class="main">
+                    <div class="text"><a href="#home">Home</a></div>
+                </div>
+            </div>
+            <div class="nav-link">
+                <div class="main">
+                    <div class="text"> <a href="#our-story">Our Story</a></div>
+                </div>
+            </div>
+            <div class="nav-link">
+                <div class="main">
+                    <div class="text"><a href="#album">Gallery</a></div>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="./asset/Logo.png" alt="Logo">
+            </div>
+            <div class="nav-link">
+                <div class="main">
+                    <div class="text"><a href="#registry">Registry</a></div>
+                </div>
+            </div>
+            <div class="nav-link">
+                <div class="main">
+                    <div class="text"><a href="#gift">Gift</a> </div>
+                </div>
+            </div>
+            <div class="nav-link">
+                <div class="main">
+                    <div class="text"><a href="#date">Date</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="frame-10" id="home">
+            <div class="celebrate">Please join us to celebrate</div>
+            <div class="names">Great & Seniorita</div>
+            <div class="date-location">
+                <span>9 August 2025</span>
+                <div class="line"></div>
+                <span>Boise, Idaho</span>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </div>
+
+    <div class="our-story-section" id="our-story">
+        <div class="our-story-content">
+            <h2 class="our-story-title">Our Story</h2>
+            <p class="our-story-text">Feugiat pretium egestas enim blandit purus euismod. Feugiat magna aliquam lectus
+                lectus eu amet. Eros, accumsan purus enim nascetur quam diam felis, fringilla varius. Quis purus nisl
+                orci eu, ultrices. Purus pretium egestas ultricies tempus sit elit. Maecenas pellentesque sit eros
+                vitae. Maecenas suspendisse tincidunt ullamcorper justo neque quis et, laoreet. Vitae lacus, aliquet
+                lorem mauris, sit dolor sodales. Nullam quam quis lorem dui tristique massa enim. Faucibus sed egestas
+                mollis vivamus et sed sed.</p>
+        </div>
+        <div class="photos-section"></div>
+    </div>
+
+    <section class="album-section" id="album">
+        <h2 class="album-title">Our Photo Album</h2>
+        <div class="album-gallery">
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0002.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0005.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0006.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0007.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0008.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0045.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0047.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0050.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0058.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0059.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0061.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0062.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0063.jpg');"></div>
+
+        </div>
+    </section>
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged photo">
+        </div>
+    </div>
+    <div class="wedding-party">
+        <h2 class="bridal-party-title">The Bridal Party</h2>
+        <div class="party-lists">
+            <div class="groomsmen-bridesmaids">
+                <div class="groomsmen-container">
+                    <h3 class="groomsmen-title active">Groomsmen</h3>
+                    <div class="groomsmen-line"></div>
+                </div>
+                <h3 class="bridesmaids-title">Bridesmaids</h3>
+                <div class="groomsmen-line"></div>
+            </div>
+            <div class="party-blocks">
+                <!-- Groomsmen Blocks (shown by default) -->
+                <div class="text-block groomsman">
+
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-25\ at\ 09.55.09_50304ed5.jpg);">
+                    </div>
+                    <h4 class="member-name"> Wisdom Lawrence</h4>
+                </div>
+                <div class="text-block groomsman">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-23\ at\ 20.16.01_1c1c2a89.jpg);">
+                    </div>
+                    <h4 class="member-name">Akemu Toju Emmanuel</h4>
+                </div>
+                <div class="text-block groomsman">
+                    <div class="member-image" style="background-image: url(./asset/IMG-20250724-WA0001.jpg);"></div>
+                    <h4 class="member-name">Ekweme Precious</h4>
+                </div>
+                <div class="text-block groomsman">
+                    <div class="member-image" style="background-image: url(./asset/IMG-20250724-WA0002.jpg);"></div>
+                    <h4 class="member-name">Andre Tuedor</h4>
+                </div>
+                <div class="text-block groomsman">
+                    <div class="member-image" style="background-image: url(./asset/IMG-20250724-WA0003.jpg);"></div>
+                    <h4 class="member-name">Favour Ogeh</h4>
+                </div>
+                <div class="text-block groomsman">
+                    <div class="member-image" style="background-image: url(./asset/IMG-20250724-WA0004.jpg);"></div>
+                    <h4 class="member-name">David Tatum</h4>
+                </div>
+
+                <!-- Bridesmaids Blocks (hidden by default) -->
+                <div class="text-block bridesmaid" style="display: none;">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-21\ at\ 20.06.46_784b6b4d.jpg);">
+                    </div>
+                    <h4 class="member-name">Lois Ovotu</h4>
+                </div>
+                <div class="text-block bridesmaid" style="display: none;">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-21\ at\ 20.07.09_f4d633e6.jpg);">
+                    </div>
+                    <h4 class="member-name">Virtue Ikpeh
+                    </h4>
+                </div>
+                <div class="text-block bridesmaid" style="display: none;">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-21\ at\ 20.08.05_adef9062.jpg);">
+                    </div>
+                    <h4 class="member-name">Ukabiala Jane
+                    </h4>
+                </div>
+                <div class="text-block bridesmaid" style="display: none;">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-21\ at\ 20.08.36_eec5a4e4.jpg);">
+                    </div>
+                    <h4 class="member-name">Yinkore Trust
+                    </h4>
+                </div>
+                <div class="text-block bridesmaid" style="display: none;">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-21\ at\ 20.09.21_89b39cec.jpg);">
+                    </div>
+                    <h4 class="member-name">Aghaibie Lois
+                    </h4>
+                </div>
+                <div class="text-block bridesmaid" style="display: none;">
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-21\ at\ 20.10.29_ece46bd6.jpg);">
+                    </div>
+                    <h4 class="member-name">Jagbedia Erica</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Countdown Section -->
+    <section class="countdown-section" id="date">
+        <h2 class="section-title">Countdown to Our Wedding</h2>
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="countdown-box">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds">00</span>
+                <p>Seconds</p>
+            </div>
+        </div>
+    </section>
+    <section class="gift-section">
+        <div class="gift-content" id="gift">
+            <h2 class="gift-title">Give a Gift</h2>
+            <p class="gift-description">
+                Your presence is the greatest gift of all, but if you wish to contribute in other ways,
+                we've set up a way to receive heartfelt gifts from our loved ones.
+            </p>
+            <a id="showBankDetails" class="gift-button">Send a Gift</a>
+        </div>
+    </section>
+
+    <!-- Gift Popup -->
+    <div class="gift-popup" id="giftPopup">
+        <div class="gift-popup-content">
+            <span class="close-popup" id="closePopup">&times;</span>
+            <h2>Bank Transfer Details</h2>
+            <p>For those who wish to send monetary gifts, here are our bank account details:</p>
+
+            <div class="bank-details">
+                <div class="bank-detail">
+                    <strong>Bank Name:</strong>
+                    <p id="bankName">Guaranty Trust Bank (GTB)</p>
+                    <button class="copy-btn" onclick="copyToClipboard('bankName')">Copy</button>
+                </div>
+
+                <div class="bank-detail">
+                    <strong>Account Name:</strong>
+                    <p id="accountName">Great & Seniorita Wedding</p>
+                    <button class="copy-btn" onclick="copyToClipboard('accountName')">Copy</button>
+                </div>
+
+                <div class="bank-detail">
+                    <strong>Account Number:</strong>
+                    <p id="accountNumber">0123456789</p>
+                    <button class="copy-btn" onclick="copyToClipboard('accountNumber')">Copy</button>
+                </div>
+
+
+            </div>
+
+            <p>Thank you for your generous gift!</p>
+        </div>
+    </div>
+
+    <!-- YouTube Live Section -->
+    <section class="youtube-live">
+        <h2 class="section-title">Watch Our Wedding Live</h2>
+        <div class="youtube-container">
+            <div class="placeholder-video">
+                <p>Live stream will appear here on our wedding day</p>
+                <a href="https://youtube.com" target="_blank" class="youtube-button">
+                    <img src="./asset/youtube-icon.png" alt="YouTube">
+                    Go to YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="registry" id="registry">
+        <div class="registry-content">
+            <h2 class="registry-title">Registry</h2>
+            <p class="registry-description">Phasellus accumsan neque viverra ut sem aliquam purus rhoncus, morbi. Ut in
+                eget leo dui nunc. Tortor viverra magna dignissim sit. Libero eu euismod risus, mauris etiam ut morbi
+                amet in. Tortor duis dignissim adipiscing sem.</p>
+        </div>
+        <div class="registry-logos">
+            <div class="logo-column">
+                <img src="./asset/Minty.png" alt="Minty" class="registry-logo minty">
+                <img src="./asset/Dune.png" alt="Dune" class="registry-logo dune">
+            </div>
+            <div class="logo-column">
+                <img src="./asset/Terra.png" alt="Terra" class="registry-logo terra">
+                <img src="./asset/Blossom.png" alt="Blossom" class="registry-logo blossom">
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Wedding Party Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const groomsmenTitle = document.querySelector('.groomsmen-title');
+            const bridesmaidsTitle = document.querySelector('.bridesmaids-title');
+            const allGroomsmen = document.querySelectorAll('.groomsman');
+            const allBridesmaids = document.querySelectorAll('.bridesmaid');
+
+            function showGroomsmen() {
+                allGroomsmen.forEach(groom => {
+                    groom.style.display = 'block';
+                });
+                allBridesmaids.forEach(bridesmaid => {
+                    bridesmaid.style.display = 'none';
+                });
+
+                groomsmenTitle.classList.add('active');
+                bridesmaidsTitle.classList.remove('active');
+            }
+
+            function showBridesmaids() {
+                allGroomsmen.forEach(groom => {
+                    groom.style.display = 'none';
+                });
+                allBridesmaids.forEach(bridesmaid => {
+                    bridesmaid.style.display = 'block';
+                });
+
+                bridesmaidsTitle.classList.add('active');
+                groomsmenTitle.classList.remove('active');
+            }
+
+            groomsmenTitle.addEventListener('click', showGroomsmen);
+            bridesmaidsTitle.addEventListener('click', showBridesmaids);
+
+            showGroomsmen();
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('August 9, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+
+        // Gift Popup Functionality
+        document.getElementById('showBankDetails').addEventListener('click', function () {
+            document.getElementById('giftPopup').style.display = 'flex';
+        });
+
+        document.getElementById('closePopup').addEventListener('click', function () {
+            document.getElementById('giftPopup').style.display = 'none';
+        });
+
+        // Close popup when clicking outside the content
+        window.addEventListener('click', function (event) {
+            if (event.target == document.getElementById('giftPopup')) {
+                document.getElementById('giftPopup').style.display = 'none';
+            }
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+
+            navigator.clipboard.writeText(text).then(function () {
+                alert('Copied to clipboard: ' + text);
+            }, function () {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('Copied to clipboard: ' + text);
+            });
+        }
+        // Lightbox functionality for album photos
+        document.querySelectorAll('.album-photo').forEach(photo => {
+            photo.addEventListener('click', function () {
+                const fullsizeUrl = this.getAttribute('data-fullsize');
+                document.getElementById('lightbox-img').src = fullsizeUrl;
+                document.getElementById('lightbox').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        document.querySelector('.close-lightbox').addEventListener('click', function () {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close when clicking outside image
+        document.getElementById('lightbox').addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Enhanced hover effect
+        document.querySelectorAll('.album-photo').forEach(photo => {
+            photo.addEventListener('mouseenter', function () {
+                this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            });
+        });
+
+    </script>
+</body>
+
+</html>
