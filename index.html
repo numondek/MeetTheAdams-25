@@ -35,7 +35,7 @@
 
         .hero-image {
             width: 80%;
-            height: 150vh;
+            height: 90vh;
             margin: 0 auto;
             margin-top: 30vh;
             background: url(./asset/IMG-20250723-WA0060-1.jpg) center/cover;
@@ -221,56 +221,116 @@
 
         /* Individual background images */
         .album-photo:nth-child(1)::before {
-            background-image: url('./asset/IMG-20250421-WA0002.jpg');
-        }
-
-        .album-photo:nth-child(2)::before {
-            background-image: url('./asset/IMG-20250421-WA0005.jpg');
-        }
-
-        .album-photo:nth-child(3)::before {
-            background-image: url('./asset/IMG-20250421-WA0006.jpg');
-        }
-
-        .album-photo:nth-child(4)::before {
-            background-image: url('./asset/IMG-20250421-WA0007.jpg');
-        }
-
-        .album-photo:nth-child(5)::before {
-            background-image: url('./asset/IMG-20250421-WA0008.jpg');
-        }
-
-        .album-photo:nth-child(6)::before {
-            background-image: url('./asset/IMG-20250723-WA0045.jpg');
-        }
-
-        .album-photo:nth-child(7)::before {
-            background-image: url('./asset/IMG-20250723-WA0047.jpg');
-        }
-
-        .album-photo:nth-child(8)::before {
-            background-image: url('./asset/IMG-20250723-WA0050.jpg');
-        }
-
-        .album-photo:nth-child(9)::before {
             background-image: url('./asset/IMG-20250723-WA0058.jpg');
         }
 
-        .album-photo:nth-child(10)::before {
+        .album-photo:nth-child(2)::before {
             background-image: url('./asset/IMG-20250723-WA0059.jpg');
         }
 
-        .album-photo:nth-child(11)::before {
+        .album-photo:nth-child(3)::before {
             background-image: url('./asset/IMG-20250723-WA0061.jpg');
         }
 
-        .album-photo:nth-child(12)::before {
+        .album-photo:nth-child(4)::before {
             background-image: url('./asset/IMG-20250723-WA0062.jpg');
         }
 
-        .album-photo:nth-child(13)::before {
+        .album-photo:nth-child(5)::before {
             background-image: url('./asset/IMG-20250723-WA0063.jpg');
         }
+
+        .album-photo:nth-child(6)::before {
+            background-image: url('./asset/IMG-20250421-WA0002.jpg');
+        }
+
+        .album-photo:nth-child(7)::before {
+            background-image: url('./asset/IMG-20250421-WA0005.jpg');
+        }
+
+        .album-photo:nth-child(8)::before {
+            background-image: url('./asset/IMG-20250421-WA0006.jpg');
+        }
+
+        .album-photo:nth-child(9)::before {
+            background-image: url('./asset/IMG-20250421-WA0007.jpg');
+        }
+
+        .album-photo:nth-child(10)::before {
+            background-image: url('./asset/IMG-20250421-WA0008.jpg');
+        }
+
+        .album-photo:nth-child(11)::before {
+            background-image: url('./asset/IMG-20250723-WA0045.jpg');
+        }
+
+        .album-photo:nth-child(12)::before {
+            background-image: url('./asset/IMG-20250723-WA0047.jpg');
+        }
+
+        .album-photo:nth-child(13)::before {
+            background-image: url('./asset/IMG-20250723-WA0050.jpg');
+        }
+
+        .wedding-album-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #000000;
+            border-top: 4px double #D6A77A;
+            border-bottom: 4px double #D6A77A;
+            padding: 40px 0;
+        }
+
+        .wedding-album-slides {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            will-change: transform;
+        }
+
+        .album-slide {
+            min-width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .album-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .album-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(198, 117, 77, 0.47);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .album-nav:hover {
+            background-color: rgba(198, 117, 77, 1);
+        }
+
+        .album-nav.prev {
+            left: 10px;
+        }
+
+        .album-nav.next {
+            right: 10px;
+        }
+
+
 
         /* Hover Effects */
         .album-photo:hover {
@@ -760,9 +820,9 @@
         </div>
         <div class="frame-10" id="home">
             <div class="celebrate">Please join us to celebrate</div>
-            <div class="names">Great & Seniorita</div>
+            <div class="names">Great & Senorita</div>
             <div class="date-location">
-                <span>9 August 2025</span>
+                <span>6 September 2025</span>
                 <div class="line"></div>
                 <span>Boise, Idaho</span>
             </div>
@@ -773,12 +833,34 @@
     <div class="our-story-section" id="our-story">
         <div class="our-story-content">
             <h2 class="our-story-title">Our Story</h2>
-            <p class="our-story-text">Feugiat pretium egestas enim blandit purus euismod. Feugiat magna aliquam lectus
-                lectus eu amet. Eros, accumsan purus enim nascetur quam diam felis, fringilla varius. Quis purus nisl
-                orci eu, ultrices. Purus pretium egestas ultricies tempus sit elit. Maecenas pellentesque sit eros
-                vitae. Maecenas suspendisse tincidunt ullamcorper justo neque quis et, laoreet. Vitae lacus, aliquet
-                lorem mauris, sit dolor sodales. Nullam quam quis lorem dui tristique massa enim. Faucibus sed egestas
-                mollis vivamus et sed sed.</p>
+            <p class="our-story-text">Our Love Story
+
+                Our journey began in the most unexpected yet beautiful way—on Instagram. One day, while casually
+                scrolling, a new follower appeared. At first glance, there were no posts, just a profile picture. It
+                didn’t seem like much, but something about his picture—maybe the kind smile behind those glasses—caught
+                enough attention to spark curiosity. A follow-back felt natural.
+
+                Soon after, a message popped up, and what started as a simple hello turned into conversations that
+                flowed so easily, it felt like we had known each other for years. He was smart, engaging, and
+                respectful—never over-the-top, just genuinely kind.
+
+                What neither of us knew at that time was that a friend had actually played a part —speaking so highly
+                about one of us and planting a seed of curiosity that would change our lives forever.
+
+                We spent three months talking—sharing our dreams, laughing at our jokes, encouraging each other through
+                life’s ups and downs, and building a bond that felt deeper with every conversation. Without even
+                realizing it, we had become an important part of each other’s daily lives.
+
+                When we finally decided to meet in person, it felt nothing like a first meeting. From the very first
+                moment, it was like reconnecting with someone our hearts had always known. There were no nerves, no
+                awkward silences—just an overwhelming sense of peace, joy, and familiarity.
+
+                Our friendship blossomed effortlessly into a relationship—a beautiful one built on trust, laughter, deep
+                conversations, shared dreams, and a whole lot of love. Every day together only confirmed what we had
+                felt from the very beginning: this was something rare.
+
+                Now, as we stand on the threshold of forever, we are filled with gratitude for every twist and turn that
+                led us here. We are excited to continue writing our story on this incredible journey of love.</p>
         </div>
         <div class="photos-section"></div>
     </div>
@@ -786,6 +868,11 @@
     <section class="album-section" id="album">
         <h2 class="album-title">Our Photo Album</h2>
         <div class="album-gallery">
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0058.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0059.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0061.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0062.jpg');"></div>
+            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0063.jpg');"></div>
             <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0002.jpg');"></div>
             <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0005.jpg');"></div>
             <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0006.jpg');"></div>
@@ -794,12 +881,6 @@
             <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0045.jpg');"></div>
             <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0047.jpg');"></div>
             <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0050.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0058.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0059.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0061.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0062.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0063.jpg');"></div>
-
         </div>
     </section>
     <!-- Lightbox Modal -->
@@ -809,6 +890,48 @@
             <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged photo">
         </div>
     </div>
+
+    <div class="wedding-album-container">
+        <button class="album-nav prev" onclick="moveSlide(-1)">&#10094;</button>
+
+        <div class="wedding-album-slides" id="weddingSlides">
+            <div class="album-slide">
+                <img src="./asset/IMG-20250723-WA0058.jpg" alt="Wedding Photo 1" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250723-WA0059.jpg" alt="Wedding Photo 2" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250723-WA0061.jpg" alt="Wedding Photo 3" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250723-WA0063.jpg" alt="Wedding Photo 4" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250723-WA0062.jpg" alt="Wedding Photo 5" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250421-WA0002.jpg" alt="Wedding Photo 6" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250421-WA0006.jpg" alt="Wedding Photo 7" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250421-WA0007.jpg" alt="Wedding Photo 8" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250421-WA0008.jpg" alt="Wedding Photo 9" />
+            </div>
+            <div class="album-slide">
+                <img src="./asset/IMG-20250723-WA0050.jpg" alt="Wedding Photo 10" />
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+
+        <button class="album-nav next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+
     <div class="wedding-party">
         <h2 class="bridal-party-title">The Bridal Party</h2>
         <div class="party-lists">
@@ -852,7 +975,9 @@
                     <h4 class="member-name">Akemu Toju Emmanuel</h4>
                 </div>
                 <div class="text-block groomsman">
-                    <div class="member-image" style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-29\ at\ 11.48.13_30635ffa.jpg);"></div>
+                    <div class="member-image"
+                        style="background-image: url(./asset/WhatsApp\ Image\ 2025-07-29\ at\ 11.48.13_30635ffa.jpg);">
+                    </div>
                     <h4 class="member-name">Inifome Seth-Ugbosu</h4>
                 </div>
 
@@ -945,19 +1070,19 @@
             <div class="bank-details">
                 <div class="bank-detail">
                     <strong>Bank Name:</strong>
-                    <p id="bankName">Guaranty Trust Bank (GTB)</p>
+                    <p id="bankName">First Bank</p>
                     <button class="copy-btn" onclick="copyToClipboard('bankName')">Copy</button>
                 </div>
 
                 <div class="bank-detail">
                     <strong>Account Name:</strong>
-                    <p id="accountName">Great & Seniorita Wedding</p>
+                    <p id="accountName">Adams Great </p>
                     <button class="copy-btn" onclick="copyToClipboard('accountName')">Copy</button>
                 </div>
 
                 <div class="bank-detail">
                     <strong>Account Number:</strong>
-                    <p id="accountNumber">0123456789</p>
+                    <p id="accountNumber">3101027286</p>
                     <button class="copy-btn" onclick="copyToClipboard('accountNumber')">Copy</button>
                 </div>
 
@@ -1044,7 +1169,7 @@
 
         // Countdown Timer
         function updateCountdown() {
-            const weddingDate = new Date('August 9, 2025 00:00:00').getTime();
+            const weddingDate = new Date('September 6, 2025 00:00:00').getTime();
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
@@ -1127,6 +1252,20 @@
                 this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
             });
         });
+
+        let currentSlide = 0;
+        const slides = document.getElementById('weddingSlides');
+        const totalSlides = slides.children.length;
+
+        function moveSlide(step) {
+            currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            moveSlide(1);
+        }, 5000);
 
     </script>
 </body>
