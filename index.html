@@ -346,6 +346,7 @@
         }
 
         /* Lightbox Modal */
+       /* Lightbox Modal - Improved */
         .lightbox {
             display: none;
             position: fixed;
@@ -353,10 +354,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(43, 17, 5, 0.95);
+            background: rgba(43, 17, 5, 0.97);
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
         }
 
         .lightbox-content {
@@ -371,18 +379,65 @@
             max-height: 80vh;
             border: 5px solid #FCF9F7;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
         }
 
         .close-lightbox {
             position: absolute;
-            top: -40px;
+            top: -50px;
             right: 0;
             color: #FCF9F7;
-            font-size: 30px;
+            font-size: 40px;
             cursor: pointer;
             background: none;
             border: none;
+            z-index: 1001;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .close-lightbox:hover {
+            opacity: 1;
+        }
+
+        /* Navigation arrows for lightbox */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(198, 117, 77, 0.7);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background-color: rgba(198, 117, 77, 1);
+        }
+
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+
+        .lightbox-nav.next {
+            right: 20px;
+        }
+
+        /* Loading indicator */
+        .lightbox-loading {
+            color: #FCF9F7;
+            font-size: 20px;
         }
 
         /* Mobile Responsiveness */
@@ -397,8 +452,23 @@
                 transform: scale(1.03);
             }
 
-            .lightbox-img {
-                max-height: 60vh;
+             .lightbox-nav {
+                padding: 12px 16px;
+                font-size: 20px;
+            }
+            
+            .lightbox-nav.prev {
+                left: 10px;
+            }
+            
+            .lightbox-nav.next {
+                right: 10px;
+            }
+            
+            .close-lightbox {
+                top: -40px;
+                right: 10px;
+                font-size: 35px;
             }
         }
 
@@ -952,26 +1022,30 @@
     <section class="album-section" id="album">
         <h2 class="album-title">Our Photo Album</h2>
         <div class="album-gallery">
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0058.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0059.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0061.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0062.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0063.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0002.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0005.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0006.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0007.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250421-WA0008.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0045.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0047.jpg');"></div>
-            <div class="album-photo" style="background-image: url('./asset/IMG-20250723-WA0050.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0058.jpg" style="background-image: url('./asset/IMG-20250723-WA0058.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0059.jpg" style="background-image: url('./asset/IMG-20250723-WA0059.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0061.jpg" style="background-image: url('./asset/IMG-20250723-WA0061.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0062.jpg" style="background-image: url('./asset/IMG-20250723-WA0062.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0063.jpg" style="background-image: url('./asset/IMG-20250723-WA0063.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250421-WA0002.jpg" style="background-image: url('./asset/IMG-20250421-WA0002.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250421-WA0005.jpg" style="background-image: url('./asset/IMG-20250421-WA0005.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250421-WA0006.jpg" style="background-image: url('./asset/IMG-20250421-WA0006.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250421-WA0007.jpg" style="background-image: url('./asset/IMG-20250421-WA0007.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250421-WA0008.jpg" style="background-image: url('./asset/IMG-20250421-WA0008.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0045.jpg" style="background-image: url('./asset/IMG-20250723-WA0045.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0047.jpg" style="background-image: url('./asset/IMG-20250723-WA0047.jpg');"></div>
+            <div class="album-photo" data-src="./asset/IMG-20250723-WA0050.jpg" style="background-image: url('./asset/IMG-20250723-WA0050.jpg');"></div>
         </div>
     </section>
-    <!-- Lightbox Modal -->
+    <!-- Lightbox Modal - Updated -->
     <div class="lightbox" id="lightbox">
-        <span class="close-lightbox">&times;</span>
+        <button class="lightbox-nav prev" id="lightboxPrev">&#10094;</button>
+        <button class="lightbox-nav next" id="lightboxNext">&#10095;</button>
+        
+        <span class="close-lightbox" id="closeLightbox">&times;</span>
         <div class="lightbox-content">
-            <img class="lightbox-img" id="lightbox-img" src="" alt="Enlarged photo">
+            <div class="lightbox-loading" id="lightboxLoading">Loading...</div>
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged photo">
         </div>
     </div>
 
@@ -1271,30 +1345,100 @@
                 alert('Copied to clipboard: ' + text);
             });
         }
-        // Lightbox functionality for album photos
-        document.querySelectorAll('.album-photo').forEach(photo => {
-            photo.addEventListener('click', function () {
-                const fullsizeUrl = this.getAttribute('data-fullsize');
-                document.getElementById('lightbox-img').src = fullsizeUrl;
-                document.getElementById('lightbox').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+         // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxLoading = document.getElementById('lightboxLoading');
+        const closeLightbox = document.getElementById('closeLightbox');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        
+        // Get all album photos
+        const albumPhotos = document.querySelectorAll('.album-photo');
+        let currentImageIndex = 0;
+        
+        // Function to open lightbox with specific image
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const imageSrc = albumPhotos[index].getAttribute('data-src');
+            
+            // Show loading indicator
+            lightboxLoading.style.display = 'block';
+            lightboxImg.style.display = 'none';
+            
+            // Load image
+            lightboxImg.onload = function() {
+                lightboxLoading.style.display = 'none';
+                lightboxImg.style.display = 'block';
+            };
+            
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Function to close lightbox
+        function closeLightboxFunc() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+        
+        // Function to navigate to next image
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % albumPhotos.length;
+            openLightbox(currentImageIndex);
+        }
+        
+        // Function to navigate to previous image
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + albumPhotos.length) % albumPhotos.length;
+            openLightbox(currentImageIndex);
+        }
+        
+        // Add click event to each album photo
+        albumPhotos.forEach((photo, index) => {
+            photo.addEventListener('click', () => {
+                openLightbox(index);
             });
         });
-
-        // Close lightbox
-        document.querySelector('.close-lightbox').addEventListener('click', function () {
-            document.getElementById('lightbox').style.display = 'none';
-            document.body.style.overflow = 'auto';
+        
+        // Close lightbox when clicking on close button
+        closeLightbox.addEventListener('click', closeLightboxFunc);
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightboxFunc();
+            }
         });
-
-        // Close when clicking outside image
-        document.getElementById('lightbox').addEventListener('click', function (e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-                document.body.style.overflow = 'auto';
+        
+        // Navigate with arrow buttons
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling to lightbox
+            nextImage();
+        });
+        
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event from bubbling to lightbox
+            prevImage();
+        });
+        
+        // Navigate with keyboard arrows
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightboxFunc();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
             }
         });
 
+        // Your existing JavaScript remains the same
+        // Wedding Party Toggle, Countdown Timer, Gift Popup Functionality, etc.
+        // ...
         // Enhanced hover effect
         document.querySelectorAll('.album-photo').forEach(photo => {
             photo.addEventListener('mouseenter', function () {
